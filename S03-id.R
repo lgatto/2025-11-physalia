@@ -279,3 +279,44 @@ idf <- pxget(px, grep("mzID", pxfiles(px), value = TRUE)[1:3])
 ## Generate a Spectra object and a table of filtered PSMs. Visualise the total
 ## ion chromatograms and check the quality of the identification data by
 ## comparing the density of the decoy and target PSMs id scores for each file.
+
+sp <- Spectra(mzf)
+
+sp
+
+length(sp)
+
+table(msLevel(sp))
+
+table(basename(sp$dataOrigin))
+table(basename(sp$dataOrigin), msLevel(sp))
+
+filterMsLevel(sp, 1) |>
+    spectraData() |>
+    ggplot(aes(x = rtime,
+               y = totIonCurrent,
+               colour = basename(dataOrigin))) +
+    geom_line()
+
+id <- PSM(idf)
+
+id
+
+table(id$idFile)
+
+names(id)
+
+data.frame(id) |>
+    ggplot(aes(x = MetaMorpheus.score,
+               colour = isDecoy)) +
+    geom_density() +
+    facet_wrap(~ idFile)
+
+max(id$PSM.level.q.value)
+
+table(id$idFile, id$isDecoy)
+
+id_filtered <- filterPSMs(id)
+
+
+grep("scan=18216", id$spectrumID, value = TRUE)
