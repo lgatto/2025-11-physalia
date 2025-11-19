@@ -13,6 +13,9 @@
 
 - Teaching material:https://rformassspectrometry.github.io/book/
 - Scripts: https://github.com/lgatto/2025-11-physalia
+
+** Packages
+
 - Spectra: https://rformassspectrometry.github.io/Spectra
 - PSMatch: https://rformassspectrometry.github.io/PSMatch
 - QFeatures: https://rformassspectrometry.github.io/QFeatures

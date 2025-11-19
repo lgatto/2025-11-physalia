@@ -267,6 +267,7 @@ plotSpectraPTM(spx[1:2])
 plotSpectraPTM(spx[3:5])
 
 
+##################################################
 ## Ex 6.1
 
 ## Get the data
